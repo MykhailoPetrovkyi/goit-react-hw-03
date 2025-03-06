@@ -1,0 +1,22 @@
+.div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.btn {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  bottom: 0;
+  width: auto;
+  height: 25px;
+  padding: 0 10px;
+}
+
+.p {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
