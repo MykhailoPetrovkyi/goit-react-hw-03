@@ -8,21 +8,16 @@ import contactsData from '../../contacts.json'
 export default function App() {
   const [contacts, setContacts] = useState(() => {
     const savedContacts = localStorage.getItem('contacts')
-
     return savedContacts !== null ? JSON.parse(savedContacts) : contactsData
   })
   const [filter, setFilter] = useState('')
 
   const addContact = (newContact) => {
-    setContacts((prevContacts) => {
-      return [...prevContacts, newContact]
-    })
+    setContacts((prevContacts) => [...prevContacts, newContact])
   }
 
   const deleteContact = (contactId) => {
-    setContacts((prevContacts) => {
-      return prevContacts.filter((contact) => contact.id !== contactId)
-    })
+    setContacts((prevContacts) => prevContacts.filter((contact) => contact.id !== contactId))
   }
 
   const visibleContacts = contacts.filter((contact) =>
@@ -30,8 +25,8 @@ export default function App() {
   )
 
   useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(visibleContacts))
-  })
+    localStorage.setItem('contacts', JSON.stringify(contacts))
+  }, [contacts])
 
   return (
     <div>
